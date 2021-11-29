@@ -1,7 +1,5 @@
-3DChromatin_ReplicateQC
+Updating 3DChromatin_ReplicateQC
 ===
-Welcome! This repository will allow you to measure the quality and reproducibility of 3D genome data.
-It computes the following:
 
 **Quality scores per sample** using
 - QuASAR-QC (part of the hifive suite at http://github.com/bxlab/hifive) 
@@ -14,58 +12,6 @@ It computes the following:
 
 ![ScreenShot](https://github.com/kundajelab/3DChromatin_ReplicateQC/blob/master/Fig1_outline_2017_08_23.png)
 
-Installation
-=====
-1. Make sure you have R>=3.4.0 (needed for HiCRep).
-
-1. Install [Anaconda2](https://www.continuum.io/downloads), which contains python as well as a set of commonly used packages. 3DChromatin_ReplicateQC is compatible with Python 2.
-
-2. First clone the repository:
-
-```
-git clone http://github.com/kundajelab/3DChromatin_ReplicateQC
-```
-
-Then, run the following installation command:
-
-```
-3DChromatin_ReplicateQC/install_scripts/install_3DChromatin_ReplicateQC.sh
-```
-**Note if you are installing locally**: There are a few parameters you can provide to the installation script, to point it to your desired python installation (where you installed anaconda, e.g. `/home/anaconda/bin/python`), R installation, R library and modules. Thus, you can run the above as described in the following example.
-
-Assume the following:
-- path to your anaconda installation of python is `/home/my_anaconda2/bin/python`
-- path to your R installation is `/home/my_R/bin/R`
-- path to your R libraries is `/home/my_R_libraries`
-- you wish to load any modules that could be loaded as `module load <module name>`
-
-Then, your installation commands would look as below:
-```
-3DChromatin_ReplicateQC/install_scripts/install_3DChromatin_ReplicateQC.sh --pathtopython /home/my_anaconda2/bin/python --pathtor /home/my_R/bin/R --rlib /home/my_R_libraries --modules module1,module2` 
-```
-
-Note that to call `3DChromatin_ReplicateQC` you will need to use the full path to it, which will be in the example above `/home/my_anaconda2/bin/3DChromatin_ReplicateQC`, rather than simply `3DChromatin_ReplicateQC`.
-
-Quick start
-====
-
-Say you want to compare 2 contact maps. For this example, we will use a subset of datasets from Rao et al., 2014. 
-First, configure the files used in the example:
-
-```
-3DChromatin_ReplicateQC/examples/configure_example.sh
-```
-
-Then run all methods (both QC and reproducibility as follows):
-
-```
-cd 3DChromatin_ReplicateQC
-3DChromatin_ReplicateQC run_all --metadata_samples examples/metadata.samples --metadata_pairs examples/metadata.pairs --bins examples/Bins.w50000.bed.gz --outdir examples/output 
-```
-
-Output
-======
-The scores are summarized in the output directory under `scores/`.
 
 **Notes about the genomewide scores**
 
@@ -237,22 +183,6 @@ For instance, an example analysis workflow for SGE would be:
 
 Similarly, for slurm, change sge to slurm for the `--running_mode`.
 
-More questions about this repository?
-====
-Contact Oana Ursu (oursu@stanford.edu)
-
-Or submit an issue for this repository.
-
-Thanks
-===
-**Code**
-
-This repository was put together by Oana Ursu. Thanks to Michael Sauria for providing wrapper scripts around the QuASAR method, Tao Yang for his assistance in integrating HiCRep into this repository, and Koon-Kiu Yan for his assistance in integrating HiC-Spector into this repository.
-
-**Testing**
-
-Thanks to the Noble lab (Gurkan Yardminci, Jie Liu, Charles Grant), as well as Michael Sauria for testing the code out and for suggestions for improvement.
-
-**docker** (coming soon)
-
-Thanks to Anna Shcherbina for help making this code dockerized.
+============
+Origin of this code: https://github.com/kundajelab/3DChromatin_ReplicateQC
+I'm only updating it to make it more user-friendly.
