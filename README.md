@@ -183,6 +183,9 @@ For instance, an example analysis workflow for SGE would be:
 
 Similarly, for slurm, change sge to slurm for the `--running_mode`.
 
+Notes 
 ============
-Origin of this code: https://github.com/kundajelab/3DChromatin_ReplicateQC
+
+ Origin of this code: https://github.com/kundajelab/3DChromatin_ReplicateQC.
+ 
 I'm only updating it to make it more user-friendly.
