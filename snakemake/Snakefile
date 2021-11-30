@@ -1,0 +1,14 @@
+from snakemake.utils import min_version
+
+min_version("6.4.0")
+
+configfile: "config.yaml"
+
+include: "rules/QuASAR-QC.smk"
+include: "rules/GenomeDISCO.smk"
+include: "rules/HiC-Spector.smk"
+include: "rules/QuASAR-Rep.smk"
+
+rule all:
+    input:
+        
