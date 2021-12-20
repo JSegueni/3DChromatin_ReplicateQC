@@ -6,4 +6,4 @@ rule data_to_hifive:
         quasar_data="results/QuASAR/{sample}.quasar_data"
     conda: "../conda.yaml"
     shell:
-        "python2 scripts/data_to_hifive.py {input.fulldata} {input.partition} {output.quasar_data"
+        "python2 scripts/data_to_hifive.py {input.fulldata} {input.partition} {output.quasar_data}"
