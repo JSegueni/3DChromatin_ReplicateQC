@@ -1,7 +1,7 @@
-rule importing:
+rule GenomeDISCO:
     input:
 
     output:
 
-    script:
+    shell:
     

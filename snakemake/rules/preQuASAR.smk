@@ -33,3 +33,18 @@ python -c "import hifive; hic=hifive.HiC(snakemake.input["quasar_project"],'w');
 
 hifive quasar -p $output/data/forQuASAR/$sample.quasar_project $output/data/forQuASAR/$sample.quasar_transform -r $resolution -d 0
 
+------------------
+
+/opt/conda/bin/hifive quasar /scratchlocal/7th_run/7th_run_output/data/forQuASAR/MCF10A_1.quasar_transform 
+-o /scratchlocal/7th_run/7th_run_output/results/qc/MCF10A_1/QuASAR-QC/MCF10A_1.QuASAR-QC.scores.txt 
+
+/opt/conda/bin/python /opt/3DChromatin_ReplicateQC/wrappers/QuASAR/quasar_split_by_chromosomes_qc.py 
+/scratchlocal/7th_run/7th_run_output/results/qc/MCF10A_1/QuASAR-QC/MCF10A_1.QuASAR-QC.scores.txt MCF10A_1
+
+
+
+
+
+hifive quasar {input.quasar_transform} -o {output.QuASAR_QC.scores}
+
+"scripts/quasar_split_by_chromosomes_qc.py"

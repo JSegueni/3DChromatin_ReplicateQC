@@ -1,8 +1,8 @@
 import hifive
+import sys
 
+hic=hifive.HiC(sys.argv[2],'w')
 
-hic=hifive.HiC(snakemake.input["quasar_project"],'w')
-
-hic.load_data(snakemake.input["fulldata"])
+hic.load_data(sys.argv[1])
 
 hic.save()
