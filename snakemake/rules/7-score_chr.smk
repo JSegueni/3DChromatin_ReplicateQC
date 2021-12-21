@@ -1,8 +1,8 @@
 rule score_chr:
     input:
-        quasar_score="results/QuASAR/{sample}.quasar_score"
+        quasar_score="results/QuASAR/score/{sample}.quasar_score"
     output:
-        quasar_score_chr="results/QuASAR/chrAll.{sample}.quasar_score"
+        quasar_score_chr="results/QuASAR/score_chr/chr1.{sample}.quasar_score"
     params:
         sample_name=lambda wildcards: [wildcards.sample]
     conda: "../conda.yaml"

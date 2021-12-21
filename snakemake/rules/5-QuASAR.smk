@@ -1,8 +1,8 @@
 rule QuASAR:
     input:
-        quasar_project="results/QuASAR/{sample}.quasar_project"
+        quasar_project="results/QuASAR/importing/{sample}.quasar_project"
     output:
-        quasar_transform="results/QuASAR/{sample}.quasar_transform"
+        quasar_transform="results/QuASAR/QuASAR/{sample}.quasar_transform"
     params:
         resolution=config["resolution"],
         coverage="0"

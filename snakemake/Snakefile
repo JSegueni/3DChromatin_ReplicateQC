@@ -7,7 +7,7 @@ configfile: "config.yaml"
 input_matrix="input/{sample}.hicqc.gz"
 samples,= glob_wildcards(input_matrix)
 
-input_line="input/{cell_line}_1.hicqc.gz"
+input_line="input/{cell_line}_1_" +  str(config["resolution"]) + ".hicqc.gz"
 cell_lines,= glob_wildcards(input_line)
 
 include: "rules/1-partition.smk"
@@ -17,11 +17,17 @@ include: "rules/4-importing.smk"
 include: "rules/5-QuASAR.smk"
 include: "rules/6-score.smk"
 include: "rules/7-score_chr.smk"
-include: "rules/8-QuASAR-Rep.smk"
+include: "rules/8-QuASAR_Rep.smk"
 include: "rules/9-combine_chr.smk"
+include: "rules/10-GenomeDISCO.smk"
+include: "rules/11-HiCRep.smk"
+include: "rules/12-HiC_Spector.smk"
 
 rule all:
     input:
         expand(rules.score_chr.output, sample=samples),
-        expand(rules.combine_chr.output, cell_line=cell_lines)
+        expand(rules.combine_chr.output, cell_line=cell_lines, sample=samples),
+        expand(rules.GenomeDISCO.output, cell_line=cell_lines),
+#        expand(rules.HiCRep.output, cell_line=cell_lines),
+#        expand(rules.HiC_Spector.output, cell_line=cell_lines)
         

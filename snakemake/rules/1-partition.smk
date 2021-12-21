@@ -2,7 +2,7 @@ rule partition:
     input:
         bed_file=config["bed_file"]
     output:
-        partition="results/QuASAR/nodes.partition"
+        partition="results/QuASAR/partition/nodes.partition"
     params:
         subset_chr=config["chr"],
         resolution=config["resolution"]
